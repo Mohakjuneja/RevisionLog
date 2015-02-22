@@ -17,7 +17,7 @@
 
 <p>
   <strong>Cuisine:</strong>
-  <%= @restaurant.cuisines.flatten.reject { |feature| feature == '0' } %>
+  <%= @restaurant.cuisines %>
 </p>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |

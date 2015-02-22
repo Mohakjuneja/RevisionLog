@@ -6,7 +6,7 @@ table
       th Name
       th Address
       th Contact
-      th
+      th ID
 
   tbody
     - @restaurants.each do |restaurant|
@@ -14,6 +14,7 @@ table
         td = restaurant.name
         td = restaurant.address
         td = restaurant.contact
+        td = restaurant.id
         td = link_to 'Show', restaurant
         td = link_to 'Edit', edit_restaurant_path(restaurant)
         td = link_to 'Destroy', restaurant, data: {:confirm => 'Are you sure?'}, :method => :delete
