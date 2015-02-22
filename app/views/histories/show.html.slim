@@ -1,0 +1,16 @@
+- @object_history.each do |history|
+  - cumulative_changes = history.attributes_modified
+  - edits = cumulative_changes.select { |k,v| !v[0].blank? && !v[1].blank? }
+  - additions = cumulative_changes.select {|k,v| v[0].blank? && !v[1].blank? }
+  - deletions = cumulative_changes.select {|k,v| !v[0].blank? && v[1].blank? }
+  = render partial: "display_changes",locals: { edits:edits, additions:additions, deletions:deletions }
+  p Modified at #{history.created_at}
+  p Modified by user id #{history.created_by_id}
+  br
+  br
+  br
+ 
+
+= link_to 'Back', histories_path
+
+

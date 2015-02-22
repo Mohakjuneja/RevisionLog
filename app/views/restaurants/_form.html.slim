@@ -1,0 +1,28 @@
+= form_for @restaurant do |f|
+  - if @restaurant.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@restaurant.errors.count, "error")} prohibited this activity_type from being saved:"
+      ul
+        - @restaurant.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+
+  .field
+    = f.label :address
+    = f.text_field :address
+
+  .field
+    = f.label :contact
+    = f.text_field :contact
+
+  .form-group
+    = label_tag :cuisines, "Available Cuisines"
+    - all_cuisines.each do |cuisine|
+      br
+      = f.check_box :cuisines, {multiple: true, checked: (@restaurant.present? && @restaurant.cuisines.present? && @restaurant.cuisines.is_a?(Array)) ? (@restaurant.cuisines.include?(cuisine) ? true : false) : false }, cuisine
+      = cuisine
+  
+  .actions = f.submit 'Save'

@@ -1,0 +1,8 @@
+- edits.each do |k,v|
+  li = "#{k} changed from #{v[0]} to #{v[1]}" unless edits.empty?
+| 
+- additions.each do |k,v| 
+  li = "Added #{k} : #{v[1]}" unless additions.empty?
+|
+- deletions.each do |k,v| 
+  li = "Removed #{k} : #{v[0]}" unless deletions.empty?
