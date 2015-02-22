@@ -7,7 +7,7 @@ module Enhancements
       attr_accessor :children
   	  def maintain_revision_log(*children)
         @children ||= []
-        # children.extract_options!
+        children.extract_options!
         @children = @children + children
         @children.map! { |e| e.to_sym }
         @children.uniq!
